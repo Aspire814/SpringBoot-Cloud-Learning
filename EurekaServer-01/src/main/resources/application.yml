@@ -1,0 +1,13 @@
+server:
+  port: 1001
+  
+spring:
+  application:
+    name: server-01
+    
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    serviceUrl:
+      defaultZone: http://peer2:1002/eureka/
