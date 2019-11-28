@@ -59,5 +59,7 @@
 		<module>Service-Feign-Hystrix</module>
 		<module>EurekaServer-02</module>
 		<module>Service-Zuul-01</module>
-	</modules>
+		<module>config-server</module>
+        <module>config-client</module>
+    </modules>
 </project>
