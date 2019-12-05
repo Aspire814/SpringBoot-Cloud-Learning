@@ -1,0 +1,52 @@
+version: "2.1"
+services:
+  eureka-server-01:      # 默认情况下，其他服务可以使用服务名称连接到该服务。因此，对于peer2的节点，它需要连接http://peer1:8761/eureka/，因此需要配置该服务的名称是peer1。
+    image: eureka-server-01
+    hostname: eureka-server-01
+    networks:
+      - eureka-net
+    ports:
+      - "1001:1001"
+
+  eureka-server-02:
+    image: eureka-server-02
+    hostname: eureka-server-02
+    networks:
+      - eureka-net
+    ports:
+      - "1002:1002"
+
+  eureka-server-03:
+    image: eureka-server-03
+    hostname: eureka-server-03
+    networks:
+      - eureka-net
+    ports:
+      - "1003:1003"
+
+  eureka-client-01:
+    image: eureka-client-01
+    hostname: eureka-client-01
+    networks:
+      - eureka-net
+    ports:
+      - "2001:2001"
+    depends_on:
+      - eureka-server-01
+      - eureka-server-02
+      - eureka-server-03
+
+  eureka-client-02:
+    image: eureka-client-02
+    hostname: eureka-client-02
+    networks:
+      - eureka-net
+    ports:
+      - "2002:2002"
+    depends_on:
+      - eureka-server-01
+      - eureka-server-02
+      - eureka-server-03
+networks:
+  eureka-net:
+    driver: bridge

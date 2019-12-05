@@ -1,9 +1,14 @@
+server:
+  port: 2002
+
+spring:
+  application:
+    name: eureka-client-02
+
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://peer1:1002/eureka/
-server:
-  port: 2002
-spring:
-  application:
-    name: service-02
+      defaultZone: http://eureka-server-01:1001/eureka/, http://eureka-server-02:1002/eureka/, http://eureka-server-03:1003/eureka/
+  instance:
+    instance-id: eureka-client-02
+    prefer-ip-address: false

@@ -1,13 +1,18 @@
-server:
-  port: 1002
-  
 spring:
   application:
-    name: server-02
-    
+    name: eureka-server
+
+server:
+  port: 1002
+
 eureka:
+  server:
+    enable-self-preservation: false  # 开发环境关掉保护机制,快速发现已经挂掉的服务，生产环境需要设置为true提升服务稳定性
   instance:
-    hostname: peer2
+    hostname: eureka-server-02
+    prefer-ip-address: false
+    instance-id: eureka-server-02
+
   client:
     serviceUrl:
-      defaultZone: http://peer1:1001/eureka/
+      defaultZone: http://eureka-server-01:1001/eureka/,http://eureka-server-03:1003/eureka/

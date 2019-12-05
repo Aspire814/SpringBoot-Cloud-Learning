@@ -51,13 +51,14 @@
 
 	<modules>
 		<module>EurekaServer-01</module>
+		<module>EurekaServer-02</module>
+		<module>EurekaServer-03</module>
 		<module>EurekaClient-01</module>
 		<module>EurekaClient-02</module>
 		<module>Service-Ribbon-01</module>
 		<module>Service-Feign-01</module>
 		<module>Service-Ribbon-Hystrix</module>
 		<module>Service-Feign-Hystrix</module>
-		<module>EurekaServer-02</module>
 		<module>Service-Zuul-01</module>
 		<module>config-server</module>
         <module>config-client</module>
