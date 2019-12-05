@@ -24,29 +24,29 @@ services:
     ports:
       - "1003:1003"
 
-  eureka-client-01:
-    image: eureka-client-01
-    hostname: eureka-client-01
-    networks:
-      - eureka-net
-    ports:
-      - "2001:2001"
-    depends_on:
-      - eureka-server-01
-      - eureka-server-02
-      - eureka-server-03
-
-  eureka-client-02:
-    image: eureka-client-02
-    hostname: eureka-client-02
-    networks:
-      - eureka-net
-    ports:
-      - "2002:2002"
-    depends_on:
-      - eureka-server-01
-      - eureka-server-02
-      - eureka-server-03
+#  eureka-client-01:
+#    image: eureka-client-01
+#    hostname: eureka-client-01
+#    networks:
+#      - eureka-net
+#    ports:
+#      - "2001:2001"
+#    depends_on:
+#      - eureka-server-01
+#      - eureka-server-02
+#      - eureka-server-03
+#
+#  eureka-client-02:
+#    image: eureka-client-02
+#    hostname: eureka-client-02
+#    networks:
+#      - eureka-net
+#    ports:
+#      - "2002:2002"
+#    depends_on:
+#      - eureka-server-01
+#      - eureka-server-02
+#      - eureka-server-03
 
   service-ribbon-01:
     image: service-ribbon-01
@@ -84,29 +84,29 @@ services:
       - eureka-server-02
       - eureka-server-03
 
-  service-feign-hystric:
-    image: service-feign-hystric
-    hostname: service-feign-hystric
-    networks:
-      - eureka-net
-    ports:
-      - "4002:4002"
-    depends_on:
-      - eureka-server-01
-      - eureka-server-02
-      - eureka-server-03
+#  service-feign-hystric:
+#    image: service-feign-hystric
+#    hostname: service-feign-hystric
+#    networks:
+#      - eureka-net
+#    ports:
+#      - "4002:4002"
+#    depends_on:
+#      - eureka-server-01
+#      - eureka-server-02
+#      - eureka-server-03
 
-  service-zuul-01:
-    image: service-zuul-01
-    hostname: service-zuul-01
-    networks:
-      - eureka-net
-    ports:
-      - "5001:5001"
-    depends_on:
-      - eureka-server-01
-      - eureka-server-02
-      - eureka-server-03
+#  service-zuul-01:
+#    image: service-zuul-01
+#    hostname: service-zuul-01
+#    networks:
+#      - eureka-net
+#    ports:
+#      - "5001:5001"
+#    depends_on:
+#      - eureka-server-01
+#      - eureka-server-02
+#      - eureka-server-03
 
 
 networks:
