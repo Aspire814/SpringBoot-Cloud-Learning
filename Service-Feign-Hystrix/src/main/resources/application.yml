@@ -1,9 +1,10 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:1001/eureka/
+      defaultZone: http://eureka-server-01:1001/eureka/,http://eureka-server-02:1002/eureka/,http://eureka-server-03:1003/eureka/
+
 server:
-  port: 4000
+  port: 4002
 spring:
   application:
     name: service-feign-hystric

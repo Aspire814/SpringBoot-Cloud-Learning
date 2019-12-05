@@ -47,6 +47,56 @@ services:
       - eureka-server-01
       - eureka-server-02
       - eureka-server-03
+
+  service-ribbon-01:
+    image: service-ribbon-01
+    hostname: service-ribbon-01
+    networks:
+      - eureka-net
+    ports:
+      - "3001:3001"
+    depends_on:
+      - eureka-server-01
+      - eureka-server-02
+      - eureka-server-03
+
+  service-ribbon-hystrix:
+    image: service-ribbon-hystrix
+    hostname: service-ribbon-hystrix
+    networks:
+      - eureka-net
+    ports:
+      - "3002:3002"
+    depends_on:
+      - eureka-server-01
+      - eureka-server-02
+      - eureka-server-03
+
+  service-feign-01:
+    image: service-feign-01
+    hostname: service-feign-01
+    networks:
+      - eureka-net
+    ports:
+      - "4001:4001"
+    depends_on:
+      - eureka-server-01
+      - eureka-server-02
+      - eureka-server-
+
+  service-feign-hystric:
+    image: service-feign-hystric
+    hostname: service-feign-hystric
+    networks:
+      - eureka-net
+    ports:
+      - "4002:4002"
+    depends_on:
+      - eureka-server-01
+      - eureka-server-02
+      - eureka-server-03
+
+
 networks:
   eureka-net:
     driver: bridge
