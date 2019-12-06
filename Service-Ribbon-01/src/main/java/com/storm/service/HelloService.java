@@ -16,7 +16,7 @@ public class HelloService {
     RestTemplate restTemplate;
 
     public String hiService(String name) {//ribbon中它会根据服务名来选择具体的服务实例
-        return restTemplate.getForObject("http://SERVICE-01/hi?name="+name,String.class);
+        return restTemplate.getForObject("http://eureka-client-01/hi?name="+name,String.class);
     }
 
 }

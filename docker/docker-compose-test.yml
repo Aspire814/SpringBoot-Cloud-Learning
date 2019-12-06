@@ -1,53 +1,5 @@
 version: "2.1"
 services:
-  eureka-server-01:
-    image: eureka-server-01
-    hostname: eureka-server-01
-    networks:
-      - eureka-net
-    ports:
-      - "1001:1001"
-
-  eureka-server-02:
-    image: eureka-server-02
-    hostname: eureka-server-02
-    networks:
-      - eureka-net
-    ports:
-      - "1002:1002"
-
-  eureka-server-03:
-    image: eureka-server-03
-    hostname: eureka-server-03
-    networks:
-      - eureka-net
-    ports:
-      - "1003:1003"
-
-#  eureka-client-01:
-#    image: eureka-client-01
-#    hostname: eureka-client-01
-#    networks:
-#      - eureka-net
-#    ports:
-#      - "2001:2001"
-#    depends_on:
-#      - eureka-server-01
-#      - eureka-server-02
-#      - eureka-server-03
-#
-#  eureka-client-02:
-#    image: eureka-client-02
-#    hostname: eureka-client-02
-#    networks:
-#      - eureka-net
-#    ports:
-#      - "2002:2002"
-#    depends_on:
-#      - eureka-server-01
-#      - eureka-server-02
-#      - eureka-server-03
-
   service-ribbon-01:
     image: service-ribbon-01
     hostname: service-ribbon-01
@@ -55,34 +7,24 @@ services:
       - eureka-net
     ports:
       - "3001:3001"
-    depends_on:
-      - eureka-server-01
-      - eureka-server-02
-      - eureka-server-03
 
-  service-ribbon-hystrix:
-    image: service-ribbon-hystrix
-    hostname: service-ribbon-hystrix
-    networks:
-      - eureka-net
-    ports:
-      - "3002:3002"
-    depends_on:
-      - eureka-server-01
-      - eureka-server-02
-      - eureka-server-03
+#
+#  service-ribbon-hystrix:
+#    image: service-ribbon-hystrix
+#    hostname: service-ribbon-hystrix
+#    networks:
+#      - eureka-net
+#    ports:
+#      - "3002:3002"
 
-  service-feign-01:
-    image: service-feign-01
-    hostname: service-feign-01
-    networks:
-      - eureka-net
-    ports:
-      - "4001:4001"
-    depends_on:
-      - eureka-server-01
-      - eureka-server-02
-      - eureka-server-03
+
+#  service-feign-01:
+#    image: service-feign-01
+#    hostname: service-feign-01
+#    networks:
+#      - eureka-net
+#    ports:
+#      - "4001:4001"
 
 #  service-feign-hystric:
 #    image: service-feign-hystric
@@ -91,10 +33,7 @@ services:
 #      - eureka-net
 #    ports:
 #      - "4002:4002"
-#    depends_on:
-#      - eureka-server-01
-#      - eureka-server-02
-#      - eureka-server-03
+
 
 #  service-zuul-01:
 #    image: service-zuul-01
@@ -103,10 +42,6 @@ services:
 #      - eureka-net
 #    ports:
 #      - "5001:5001"
-#    depends_on:
-#      - eureka-server-01
-#      - eureka-server-02
-#      - eureka-server-03
 
 
 networks:

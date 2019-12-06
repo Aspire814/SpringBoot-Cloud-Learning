@@ -1,0 +1,21 @@
+version: "2.1"
+services:
+  eureka-client-01:
+    image: eureka-client-01
+    hostname: eureka-client-01
+    networks:
+      - eureka-net
+    ports:
+      - "2001:2001"
+
+  eureka-client-02:
+    image: eureka-client-02
+    hostname: eureka-client-02
+    networks:
+      - eureka-net
+    ports:
+      - "2002:2002"
+
+networks:
+  eureka-net:
+    driver: bridge
